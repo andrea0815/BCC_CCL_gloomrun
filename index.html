@@ -1,0 +1,130 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="stylesheets/style.css">
+	<link rel="stylesheet" href="stylesheets/animations.css">
+	<title>Gloom Run - A Game by Andrea Windisch</title>
+</head>
+
+<body>
+	<img class="title" src="./images/title.gif" alt="Gloomy Moon Run Title">
+	<!-- <h1 class="title">Gloomy Moon Run</h1> -->
+
+	<div class="gameContainer">
+
+		<!-- BEGIN SCREEN -->
+
+		<div id="beginScreen" class="gameContainerItem">
+			<!-- <img src="/images/frame.png" alt="" class="framImg"> -->
+			<video id="BuiltUpAnimation" class="video" autoplay muted>
+				<source src="videos/_gameStartBuiltUp.mp4" type="video/mp4">
+				Your browser does not support the video tag.
+			</video>
+
+			<video id="startScreenAnimation" class="video" muted loop>
+				<source src="videos/_gameStartScreen.mp4" type="video/mp4">
+				Your browser does not support the video tag.
+			</video>
+
+			<video id="FleeingAnimation" class="video" muted loop>
+				<source src="videos/_gameFleeing.mp4" type="video/mp4">
+				Your browser does not support the video tag.
+			</video>
+
+			<a id="startButton" onclick="startGame()" class="slideInAnimation">start</a>
+
+		</div>
+
+		<!-- GAME SCREEN -->
+
+		<div id="gameScreen" class="gameContainerItem">
+			<div>
+				<canvas class="gameElement" width="1000" height="714" id="canvas"></canvas>
+				<img src="./images/skyBackground2.png" alt="" class="canvasBgImg">
+				<img src="./images/moonAnimation.gif" alt="" class="canvasBgImg">
+			</div>
+			
+			<!-- GAME OVER SCREEN -->
+
+			<div id="endScreen" class="gameContainerItem">
+				<img src="./images/gameOverFrame.png" alt="" id="gameOverFrame">
+				<img class="gameOverText" src="./images/gameOverTitle.gif" alt="">
+				<a id="restartButton" onclick="resetGame()">
+					<img src="./images/gameOverRestartIcon.png">
+					<p>try again!</p>
+				</a>
+
+				<div id="grayBackground"></div>
+
+				<!-- <button id="homeButton" onclick="startGame()"><img src="/images/ gameOverIconHome.png"></button> -->
+			</div>
+		</div>
+
+		<div id="ruleScreen" class="gameContainerItem">
+			<img src="./images/gameOverFrame.png" alt="" id="gameOverFrame">
+			<img id="controlsScreen" src="./images/controlsScreen.gif" alt="">
+			<div id="grayBackground"></div>
+		</div>
+	</div>
+
+	<!-- texture for the page -->
+
+	<img src="./images/texturePaperWeb.png" alt="Papertexture" class="texture">
+
+	<button id="homeBtn" onclick="window.location.reload();" class="menuIcons"><img src="./images/gameOverIconHome.png" class="icons"></button>
+	<button id="rulesBtn" onclick="showRuleScreen()" class="menuIcons"><img id='rulesBtnImg'src="./images/gameOverIconInfo.png" class="icons"></button>
+	<button id="soundBtn" class="menuIcons" onclick="changeGameSpeed()"><img id='srcBtnImg' src="./images/iconSpeed1.png" class="icons"></button>
+
+	<!-- FOOTER -->
+
+	<footer>
+		<p><span class="copyright">&copy;</span> a game by Andrea Windisch</p>
+	</footer>
+
+	<audio id='runningSound' src="./sounds/runningSound.mp3" loop></audio>
+	<audio id='nightAmbienceSound' src="./sounds/nightAmbienceSound.mp3" loop></audio>
+
+</body>
+
+<!-- First: Import the Classes -->
+<!-- gameManager -->
+<script src="./scripts/gameManager.js"></script>
+
+<!-- drawLayer -->
+<script src="scripts/canvas.js"></script>
+
+<!-- object data -->
+<script src="scripts/gameObjects/parralaxObjects.js"></script>
+<script src="scripts/gameObjects/obstacleObjects.js"></script>
+
+<!-- gameObjects -->
+<script src="scripts/gameObjects/gameObject.js"></script>
+<script src="scripts/gameObjects/imageObject.js"></script>
+<script src="scripts/gameObjects/obstacleSpawner.js"></script>
+<script src="scripts/gameObjects/groundObjectSpawner.js"></script>
+
+<script src="scripts/gameObjects/player.js"></script>
+<script src="scripts/gameObjects/obstacle.js"></script>
+<script src="scripts/gameObjects/prallaxObject.js"></script>
+<script src="scripts/gameObjects/ground.js"></script>
+<script src="scripts/gameObjects/text.js"></script>
+<script src="scripts/gameObjects/sound.js"></script>
+<script src="scripts/gameObjects/groundObject.js"></script>
+<script src="scripts/gameObjects/decorationObjects.js"></script>
+
+<!-- Second: Start the Setup for the game -->
+<script src="scripts/setup/stageSetup.js"></script>
+<script src="scripts/setup/inputHandling.js"></script>
+<!-- <script src="scripts/tutorial/main.js"></script> -->
+
+
+
+<!-- Third: Optional -> integrate markRectangles for getting coordinates on playspace  -->
+<!-- Just remove the comment "" in the next line to make it work.-->
+<!--<script src="gameObjects/markRectangle.js"></script> 
+	<button style="position: relative; display: block;" onclick="new MarkRectangle('markRect', 100, 100, 80, 80);">New Mark Rectangle</button>
+	<div id="markRectInfo" style="position: relative; width: 600px; height: 600px;"></div>-->
+
+
+
+</html>
